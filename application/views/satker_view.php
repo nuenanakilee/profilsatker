@@ -162,7 +162,7 @@ function edit_satker(kodesatker)
     });
 }
 
-function lihat_satker($kodesatker)
+function lihat_satker(kodesatker)
 {
     ////save_method = 'get_by_id';
     //$('#form')[0].reset(); // reset form on modals
@@ -172,24 +172,24 @@ function lihat_satker($kodesatker)
     //var kodesatker = $(this).attr('btn-primary');
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Satker/ajax_data/')?>/" + kodesatker,
+        url : "<?php echo site_url('satker/ajax_data/')?>/" + kodesatker,
         type: "GET",
         //data: {kodesatker:kodesatker},
         dataType: "JSON",
         success: function(data)
         {
-             
-            $('[name="kodesatker"]').val(data.kodesatker);
-            $('[name="namasatker"]').val(data.namasatker);
-            $('[name="alamat"]').val(data.alamat);
-            $('[name="email"]').val(data.email);
-            $('[name="jenissatker"]').val(data.jenissatker);
-            $('[name="namapejabat"]').val(data.namapejabat);
-            $('[name="jabperbend"]').val(data.jabperbend);
-            $('[name="paktaintegritas"]').val(data.paktaintegritas);
-            $('[name="foto"]').val(data.foto);
+            console.log(data);
+            $('[class="kodesatker"]').text(data.kodesatker);
+            $('[class="namasatker"]').text(data.namasatker);
+            $('[class="alamat"]').text(data.alamat);
+            $('[class="email"]').text(data.email);
+            $('[class="jenissatker"]').text(data.jenissatker);
+            $('[class="namapejabat"]').text(data.namapejabat);
+            $('[class="jabperbend"]').text(data.jabperbend);
+            $('[class="paktaintegritas"]').text(data.paktaintegritas);
+            $('[class="foto"]').html('<img src="'+data.foto+'" width="80%"/>');
            // $('[name="dob"]').datepicker('update',data.dob);
-            $('#detail_satker').html(data);
+            //$('#detail_satker').html(data);
             $('#modal_view').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('DETAIL INFORMASI SATUAN KERJA'); // Set title to Bootstrap modal title
  
@@ -307,42 +307,39 @@ function lihat_satker2($kodesatker)
             <!----------TAMPILKAN DATA SATKER TERPILIH----------->
             <div id="detail_satker">
                  <div class="row" align="center">
-            <div class="col-lg-6" >
+            <div class="col-lg-12" >
             <table class="table table-bordered"  >
-                
                     <tr>
-                    <td colspan="2" ><span name="foto"> <img src="" width="500px"/></span></td>
+                    <td colspan="2" style="text-align:center"><span class="foto"></span></td>
                    </tr>
                     <tr>
                     <td><b>Kode Satker</b></td>
-                    <td ><span name="kodesatker"></span></td>
+                    <td ><span class="kodesatker"></span></td>
                    </tr>
                    <tr>
                     <td><b>Nama Kuasa Pengguna Anggaran</b></td>
-                    <td><span name="namapejabat"></span></td>            
+                    <td><span class="namapejabat"></span></td>            
                    </tr>            
                    <tr>
                     <td><b>Alamat</b></td>
-                    <td><span name="alamat"></span></td>            
+                    <td><span class="alamat"></span></td>            
                    </tr> 
                    <tr>
                     <td><b>E-Mail Kantor</b></td>
-                    <td><span nama"email"></span></td>            
+                    <td><span class="email"></span></td>            
                    </tr>
                    <tr>
                     <td><b>Pakta Integritas</b></td>
-                    <td><span name="pagu"></span></td>            
+                    <td><span class="paktaintegritas"></span></td>            
                    </tr>
                    <tr>
                     <td><b>Pagu Anggaran</b></td>
-                    <td><span name="pagu"></span></td>            
+                    <td><span class="pagu"></span></td>            
                    </tr>             
                    <tr>
                     <td><b>Realisasi Triwulan I</b></td>
-                    <td><span name="realisasi"></span></td>            
-                   </tr>
-                       
-                                       
+                    <td><span class="realisasi"></span></td>            
+                   </tr>                
             </table>
             </div>
       </div> 

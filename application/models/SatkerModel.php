@@ -92,7 +92,7 @@ class SatkerModel extends CI_Model {
         $this->db->join('t_gabungan', 't_satker.kodesatker=t_gabungan.kodesatker');
 		$this->db->join('t_realisasi1', 't_satker.kodesatker=t_realisasi1.kodesatker');
 		$this->db->like('jabperbend', 'KPA', 'both');
-        $this->db->where('kodesatker',$kodesatker);
+        $this->db->where('t_satker.kodesatker',$kodesatker);
         $query = $this->db->get();
  
         return $query->row();
