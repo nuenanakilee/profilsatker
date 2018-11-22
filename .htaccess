@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^profilsatker\.kppnsumbawabesar\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.profilsatker\.kppnsumbawabesar\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "http\:\/\/profilsatker\.kppnsumbawabesar\.com\/index\.php" [R=301,L]
+
